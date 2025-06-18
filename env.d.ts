@@ -1,0 +1,10 @@
+declare namespace NodeJS {
+  interface ProcessEnv {
+    EXPO_PUBLIC_APPWRITE_ENDPOINT: string;
+    EXPO_PUBLIC_APPWRITE_PROJECT_ID: string;
+    EXPO_PUBLIC_APPWRITE_DATABASE_ID: string;
+    EXPO_PUBLIC_APPWRITE_COL_NOTES_ID: string;
+    EXPO_PUBLIC_APPWRITE_BUNDLE_ID: string;
+    EXPO_PUBLIC_APPWRITE_PACKAGE_NAME: string;
+  }
+}
