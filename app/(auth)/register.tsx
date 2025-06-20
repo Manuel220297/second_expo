@@ -1,14 +1,16 @@
-import { Link } from 'expo-router';
+import { useRouter } from 'expo-router';
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Pressable, Text, View } from 'react-native';
 
 export default function RegisterPage() {
+  const router = useRouter();
+
   return (
-    <View className='dark:bg-black flex-1 justify-center items-center'>
-      <Text className='dark:text-white'>RegisterPage</Text>
-      <Link href={'/login'}>
-        <Text>Login Page</Text>
-      </Link>
+    <View className='dark:bg-black flex-1 justify-center items-center mb-8'>
+      <Text className='dark:text-white text-3xl font-bold'>Register Page</Text>
+      <Pressable onPress={() => router.replace('/login')}>
+        <Text className='underline'> {'-> Login Page'}</Text>
+      </Pressable>
     </View>
   );
 }

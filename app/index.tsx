@@ -14,12 +14,19 @@ export default function Index() {
       <Text className='text-teal-400 text-xl mb-8'>Testing typhography lorem</Text>
       <Link href={'/about'} asChild>
         <TouchableOpacity className='mt-4 py-6 px-12 bg-white rounded-lg shadow-lg dark:shadow-white'>
-          <Text>Shadow Box</Text>
+          <Text>Login</Text>
         </TouchableOpacity>
       </Link>
+
       <TouchableOpacity onPress={toggleTheme} className='mt-4 py-6 px-12 bg-white rounded-lg shadow-lg'>
-        <Text>Shadow Box</Text>
+        <Text>Toggle Theme</Text>
       </TouchableOpacity>
+      <Link href={'/books'}>
+        <Text>Books Page</Text>
+      </Link>
+      <Link href={'/profile'}>
+        <Text>Profile Page</Text>
+      </Link>
     </View>
   );
 }

@@ -6,9 +6,6 @@ export default function AuthLayout() {
       screenOptions={{
         headerShown: false,
         animation: 'none',
-      }}>
-      <Stack.Screen name='index' options={{ title: 'Home Page' }} />
-      <Stack.Screen name='about' options={{ title: 'About Page' }} />
-    </Stack>
+      }}></Stack>
   );
 }
