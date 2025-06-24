@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react';
 import { Text, View } from 'react-native';
 
 export default function About() {
-  const { theme, toggleTheme } = useTheme();
+  const { theme } = useTheme();
   const [documentData, setDocumentData] = useState<any>(null);
 
   const router = useRouter();

@@ -1,3 +1,4 @@
+import { useUser } from '@/context/userContext';
 import { useRouter } from 'expo-router';
 import React, { useState } from 'react';
 import { Pressable, Text, TextInput, TouchableOpacity, View } from 'react-native';
@@ -6,6 +7,19 @@ export default function RegisterPage() {
   const [email, setEmail] = useState<string>();
   const [password, setPassword] = useState<string>();
   const router = useRouter();
+  const { register } = useUser();
+
+  async function handleRegister() {
+    try {
+      if (!email || !password) {
+        console.log('Email and password must not be empty');
+        return;
+      }
+      await register(email, password);
+    } catch (error: any) {
+      console.log('Error creating account: ', error);
+    }
+  }
 
   return (
     <View className='dark:bg-black flex-1 justify-center items-center mb-8'>
@@ -24,9 +38,7 @@ export default function RegisterPage() {
         className='bg-gray-200 w-[80%] rounded-md p-4 m-2'
         placeholder='Password'
         secureTextEntry={true}></TextInput>
-      <TouchableOpacity
-        className='bg-teal-500 w-[80%] rounded-md p-4 m-2'
-        onPress={() => console.log(`\nEmail: ${email}\nPassword: ${password}`)}>
+      <TouchableOpacity className='bg-teal-500 w-[80%] rounded-md p-4 m-2' onPress={handleRegister}>
         <Text className='text-center font-bold text-white text-xl'>Register</Text>
       </TouchableOpacity>
     </View>

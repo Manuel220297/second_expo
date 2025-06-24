@@ -1,6 +1,6 @@
 import { account } from '@/lib/appwrite';
 import React, { createContext, useContext, useState } from 'react';
-import { Models } from 'react-native-appwrite';
+import { ID, Models } from 'react-native-appwrite';
 
 type AuthContextType = {
   user: Models.User<Models.Preferences> | undefined;
@@ -27,7 +27,14 @@ export function UserProvider({ children }: UserProviderProps) {
       console.log(`Can't login ${error}`);
     }
   }
-  async function register(email: string, password: string) {}
+  async function register(email: string, password: string) {
+    try {
+      await account.create(ID.unique(), email, password);
+      console.log(`Account Created Successful:\nEmail: ${email}\nPassword: ${password}`);
+    } catch (error: any) {
+      console.error('Error creating account: ', error);
+    }
+  }
   async function logout() {
     try {
       console.log('Logout Succesful ✔');
@@ -38,7 +45,7 @@ export function UserProvider({ children }: UserProviderProps) {
     }
   }
 
-  return <UserContext.Provider value={{ user, login, register, logout }}> {children} </UserContext.Provider>;
+  return <UserContext.Provider value={{ user, login, register, logout }}>{children}</UserContext.Provider>;
 }
 
 export function useUser() {
