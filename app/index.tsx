@@ -21,11 +21,8 @@ export default function Index() {
       <TouchableOpacity onPress={toggleTheme} className='mt-4 py-6 px-12 bg-white rounded-lg shadow-lg'>
         <Text>Toggle Theme</Text>
       </TouchableOpacity>
-      <Link href={'/books'}>
-        <Text>Books Page</Text>
-      </Link>
       <Link href={'/profile'}>
-        <Text>Profile Page</Text>
+        <Text>Books Page</Text>
       </Link>
     </View>
   );
