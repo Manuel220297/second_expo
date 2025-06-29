@@ -53,6 +53,13 @@ export default function DashboardLayout() {
               tabBarIcon: ({ focused }) => <Ionicons size={24} name={focused ? 'create' : 'create-outline'} />,
             }}
           />
+
+          <Tabs.Screen
+            name='books/[id]'
+            options={{
+              href: null,
+            }}
+          />
         </Tabs>
       </UserOnly>
     </BookProvider>
